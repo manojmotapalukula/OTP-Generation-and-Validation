@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            padding:0;
+            border:0;
+            margin:0;
+            box-sizing: border-box;
+            background: black;
+            color:rgb(0, 0, 0);
+          }
+
+          .main{ 
+            height:50vh;
+            width:50%;  
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
+            align-items:center;
+            text-align: center;
+            border:3px solid white ;
+            border-radius:5px;
+            margin: auto;
+            background: white;
+            
+            
+          }
+          
+          button{
+            height:30px;
+            width:90%;
+            margin:3px;
+            cursor:pointer;
+          }
+          
+          input{
+            width:90%;
+            height:50px;
+            margin:3px;
+            margin-bottom: 15px;
+            border-radius:3px;
+            border:2px solid black;
+            text-align:center;
+          }
+          
+          .generate{
+            background: lightblue;
+            
+          }
+            
+          .verify{
+            background: lightgreen;
+          
+          }
+          
+          .reset{
+            background: pink;
+          }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <h2>OTP Generator</h2>
+          <button class="generate" onClick="otpGenerate()" >Generate OTP</button>
+          <h2 class="otpgenerated" id="otp"></h2>
+          <input type="text" id="otpentered" placeholder="Verify otp here..."/>
+          <button class="verify" onClick = "verifyOtp()" >Verify OTP</button>
+          <button class="reset" onClick = "resetOtp()">Reset OTP</button>
+          
+        </div>
+        
+
+        <script>
+            let otp;
+            let generated;
+            function otpGenerate(){
+                otp = Math.ceil(Math.random()*1000000);
+                generated = document.getElementById("otp").innerHTML = otp;
+            }
+
+            function verifyOtp(){
+                let otpentered = document.getElementById("otpentered").value;
+                if (otpentered==generated){
+                    alert("Welcome to my page!");
+            }
+                else{
+                    alert("Enter valid otp!");
+            }
+            
+            
+            }
+
+
+            function resetOtp(){
+                location.reload();
+            }
+                    </script>
+</body>
+</html>
